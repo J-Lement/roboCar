@@ -2,6 +2,7 @@ package com.service.impl;
 
 import com.dao.CarDao;
 import com.pojo.Car;
+import com.pojo.Point;
 import com.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,26 @@ public class CarServiceImpl implements CarService {
     public List<Car> queryAll() {
         return carDao.queryAll();
     }
+
+    @Override
+    public List<Point> queryRoute() {
+        return carDao.queryRoute();
+    }
+
+    @Override
+    public int addRoute(Point point) {
+        return carDao.addRoute(point);
+    }
+
+    @Override
+    public int deleteRoute() {
+        return carDao.deleteRoute();
+    }
+
+    @Override
+    public List<Point> queryAllPoints(){
+        return carDao.queryAllPoints();
+    };
 
     @Override
     public int operation(int carId, int order){

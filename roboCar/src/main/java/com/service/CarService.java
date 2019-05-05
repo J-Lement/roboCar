@@ -1,6 +1,7 @@
 package com.service;
 
 import com.pojo.Car;
+import com.pojo.Point;
 
 import java.util.List;
 
@@ -16,4 +17,12 @@ public interface CarService {
     List<Car> queryAll();
 
     int operation(int carId, int order);
+
+    List<Point> queryAllPoints();
+
+    List<Point> queryRoute();
+
+    int addRoute(Point point);
+
+    int deleteRoute();
 }

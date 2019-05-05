@@ -11,6 +11,13 @@
         <result property="cSpeed" column="c_speed"/>
     </resultMap>
 
+    <resultMap id="pointMap" type="Point">
+        <id property="pId" column="p_id"/>
+        <result property="pLatitude" column="p_latitude"/>
+        <result property="pLongitude" column="p_longitude"/>
+        <result property="pName" column="p_name"/>
+    </resultMap>
+
     <insert id="addCar" parameterType="Car">
         insert into car(c_name, c_longitude, c_latitude, c_speed)
          values (#{cName}, #{cLongitude}, #{cLatitude}, #{cSpeed})
@@ -36,5 +43,24 @@
         set c_name=#{cName},c_longitude=#{cLongitude},c_latitude=#{cLatitude},c_speed=#{cSpeed}
         where c_id=#{cId}
     </update>
+
+    <select id="queryAllPoints" resultMap="pointMap">
+        select p_id, p_name, p_longitude, p_latitude
+        from point;
+    </select>
+
+    <select id="queryRoute" resultMap="pointMap">
+        select p_id, p_name, p_longitude, p_latitude
+        from route;
+    </select>
+
+    <insert id="addRoute" parameterType="Point">
+        insert into route(p_longitude, p_latitude)
+        values(#{pLongitude}, #{pLatitude})
+    </insert>
+
+    <delete id="deleteRoute" >
+        delete from route;
+    </delete>
 
 </mapper>

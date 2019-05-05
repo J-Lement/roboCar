@@ -11,13 +11,46 @@
     <title>Title</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/car.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
         function operateCar(order) {
-            window.location.href = "/car/operation?order="+ order +"&cId=${car.cId}";
+            <%--window.location.href = "/car/operation?order="+ order +"&cId=${car.cId}";--%>
+            $.ajax({
+                async: true,
+                type: "get",
+                url: "/car/operation",
+                data: {
+                    "order":order,
+                    "cId":${car.cId}
+                },
+                datatype: "json",
+                success: function (data) {
+                    alert("发送成功！" + data);
+                },
+                error: function () {
+                  alert("发送失败。。。");
+                }
+            });
         }
 
         function operateCamera(order){
-            window.location.href = "/video/operation?order=" + order + "&cId=${car.cId}"
+            <%--window.location.href = "/video/operation?order=" + order + "&cId=${car.cId}";--%>
+            $.ajax({
+                async: true,
+                type: "get",
+                url: "/video/operation",
+                data: {
+                    "order":order,
+                    "cId":${car.cId}
+                },
+                datatype: "json",
+                success: function (data) {
+                    alert("发送成功！" + data);
+                },
+                error: function () {
+                    alert("发送失败。。。");
+                }
+            });
         }
     </script>
 </head>
@@ -29,8 +62,8 @@
                 <li class="active">
                     <a href="#">首页</a>
                 </li>
-                <li class="disabled">
-                    <a href="#">简介</a>
+                <li>
+                    <a href="/car/setRoute">设置路线</a>
                 </li>
                 <li >
                     <a href="/video/queryAllVideo">视频监控</a>

@@ -16,12 +16,12 @@ public class Point implements Serializable {
     /**
      * 经度
      */
-    private BigDecimal pLongitude;
+    private double pLongitude;
 
     /**
      * 纬度
      */
-    private BigDecimal pLatitude;
+    private double pLatitude;
 
     /**
      * 点的名字
@@ -38,19 +38,19 @@ public class Point implements Serializable {
         this.pId = pId;
     }
 
-    public BigDecimal getpLongitude() {
+    public double getpLongitude() {
         return pLongitude;
     }
 
-    public void setpLongitude(BigDecimal pLongitude) {
+    public void setpLongitude(double pLongitude) {
         this.pLongitude = pLongitude;
     }
 
-    public BigDecimal getpLatitude() {
+    public double getpLatitude() {
         return pLatitude;
     }
 
-    public void setpLatitude(BigDecimal pLatitude) {
+    public void setpLatitude(double pLatitude) {
         this.pLatitude = pLatitude;
     }
 
@@ -62,47 +62,4 @@ public class Point implements Serializable {
         this.pName = pName;
     }
 
-    @Override
-    public boolean equals(Object that) {
-        if (this == that) {
-            return true;
-        }
-        if (that == null) {
-            return false;
-        }
-        if (getClass() != that.getClass()) {
-            return false;
-        }
-        Point other = (Point) that;
-        return (this.getpId() == null ? other.getpId() == null : this.getpId().equals(other.getpId()))
-            && (this.getpLongitude() == null ? other.getpLongitude() == null : this.getpLongitude().equals(other.getpLongitude()))
-            && (this.getpLatitude() == null ? other.getpLatitude() == null : this.getpLatitude().equals(other.getpLatitude()))
-            && (this.getpName() == null ? other.getpName() == null : this.getpName().equals(other.getpName()));
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((getpId() == null) ? 0 : getpId().hashCode());
-        result = prime * result + ((getpLongitude() == null) ? 0 : getpLongitude().hashCode());
-        result = prime * result + ((getpLatitude() == null) ? 0 : getpLatitude().hashCode());
-        result = prime * result + ((getpName() == null) ? 0 : getpName().hashCode());
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", pId=").append(pId);
-        sb.append(", pLongitude=").append(pLongitude);
-        sb.append(", pLatitude=").append(pLatitude);
-        sb.append(", pName=").append(pName);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
 }

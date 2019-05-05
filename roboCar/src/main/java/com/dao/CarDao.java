@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.pojo.Car;
+import com.pojo.Point;
 
 import java.util.List;
 
@@ -15,4 +16,11 @@ public interface CarDao {
 
     List<Car> queryAll();
 
+    List<Point> queryAllPoints();
+
+    List<Point> queryRoute();
+
+    int addRoute(Point point);
+
+    int deleteRoute();
 }

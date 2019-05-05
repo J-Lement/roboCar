@@ -7,10 +7,12 @@ import com.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/video")
@@ -38,10 +40,14 @@ public class VideoController {
     }
 
     @RequestMapping("/operation")
+    @ResponseBody
     public String operation(int order, int cId, Model model){
+        System.out.println("这里是controller,参数order：" + order + " ,cId:" + cId);
         videoService.operation(order, cId);
         model.addAttribute("cId", cId);
-        return "redirect:/video/queryCarInfo/{cId}";
+
+        return "success";
+//        return "redirect:/video/queryCarInfo/{cId}";
     }
 
 }
