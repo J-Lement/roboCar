@@ -1,5 +1,7 @@
 package com.pojo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -11,22 +13,37 @@ public class Point implements Serializable {
     /**
      * 编号
      */
+    @JsonProperty(value="id")
     private Integer pId;
 
     /**
      * 经度
      */
+    @JsonProperty(value="lng")
     private double pLongitude;
 
     /**
      * 纬度
      */
+    @JsonProperty(value="lat")
     private double pLatitude;
 
     /**
      * 点的名字
      */
+    @JsonProperty("name")
     private String pName;
+
+    public Point(){
+
+    }
+
+    public Point(int pid,double longitude,double latitude,String name){
+        this.pId = pid;
+        this.pLongitude = longitude ;
+        this.pLatitude = latitude;
+        this.pName = name;
+    }
 
     private static final long serialVersionUID = 1L;
 

@@ -44,6 +44,12 @@
 <h3>
     <a href="${path }/video/queryAllVideo">点击进入视频页面</a>
 </h3>
+<h3>
+    <a href="${path }/map/mappoint">point</a>
+</h3>
+<h3>
+    <a href="${path }/map/maproute">route</a>
+</h3>
 
 </body>
 </html>

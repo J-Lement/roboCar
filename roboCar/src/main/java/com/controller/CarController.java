@@ -22,6 +22,18 @@ public class CarController {
     @Autowired
     private CarService carService;
 
+    @RequestMapping("/singlecar")
+    public String singleCar(Integer id) {
+        return "singlecar";
+    }
+
+    @RequestMapping("/homepage")
+    public String homepage(Model model) {
+        List<Car> list = carService.queryAll();
+        model.addAttribute("carlist", list);
+        return "homepage";
+    }
+
     @RequestMapping("toAddCar")
     public String toAddCar(){
         return "addCar";

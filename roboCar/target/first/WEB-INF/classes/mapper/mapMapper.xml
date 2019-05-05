@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.MapDao">
+    <insert id="InsertPoint" parameterType="Point">
+        insert into point(p_name, p_longitude, p_latitude)
+         values (#{pName}, #{pLongitude}, #{pLatitude});
+    </insert>
+
+    <insert id="InsertLine" parameterType="Edge">
+        insert into edge(p_firstId, p_secondId, e_value)
+        values (#{pFirstid}, #{pSecondid}, #{eValue})
+    </insert>
+</mapper>
